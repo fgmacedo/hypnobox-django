@@ -22,14 +22,19 @@ Install hypnobox-django::
 
     pip install hypnobox-django
 
-Then include it on `INSTALLED_APPS``::
+Include it on `INSTALLED_APPS`::
 
-    `hypnobox`
+    'hypnobox',
+
+And in your routes (`urls.py`)::
+
+    url(r'^leads/', include('hypnobox.urls', namespace='hypnobox')),
 
 Then use it in a template::
 
-    {% load hypnobox_tags  %}
+.. code-block:: django
 
+    {% load hypnobox_tags  %}
     {% new_lead "your-product-code" "your-media-name" %}
 
 
