@@ -30,7 +30,7 @@ And in your routes (`urls.py`)::
 
     url(r'^leads/', include('hypnobox.urls', namespace='hypnobox')),
 
-Then use it in a template::
+Then use it in a template:
 
 .. code-block:: django
 
