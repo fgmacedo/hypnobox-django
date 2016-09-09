@@ -2,12 +2,10 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.utils.http import urlencode
+
 from django.utils.translation import ugettext_lazy as _
 from django.core.validators import RegexValidator
 
-
-from . import settings as app_settings
 
 class Lead(models.Model):
     name = models.CharField(_('name'), max_length=200)
@@ -32,30 +30,3 @@ class Lead(models.Model):
 
     def __unicode__(self):
         return self.name
-
-    def as_params(self):
-        if app_settings == 1.0:
-            data = self._params_10()
-        else:
-            data = self._params_12()
-        return urlencode(data)
-
-    def _params_10(self):
-        return dict(
-            nome=self.name,
-            email=self.email,
-            ddd_residencial=self.phone_prefix,
-            tel_residencial=self.phone_number,
-            id_produto=self.product_id,
-            referencia=self.media,
-        )
-
-    def _params_12(self):
-        return dict(
-            nome=self.name,
-            email=self.email,
-            ddd_residencial=self.phone_prefix,
-            tel_residencial=self.phone_number,
-            id_produto=self.product_id,
-            midia=self.media,
-        )

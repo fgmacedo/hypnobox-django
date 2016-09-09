@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.views.generic import CreateView
 
-
 from .models import Lead
 from .forms import LeadForm
-from . import settings as app_settings
+from .specs import get_spec
 
 
 class LeadCreateView(CreateView):
@@ -21,10 +20,5 @@ class LeadCreateView(CreateView):
         return kwargs
 
     def get_success_url(self):
-        params = self.object.as_params()
-        url = app_settings.SUCCESS_URL.format(
-            client_id=app_settings.CLIENT_ID,
-            domain=app_settings.DOMAIN,
-            params=params
-        )
-        return url
+        spec = get_spec()
+        return spec.get_chat_url(self.object)
