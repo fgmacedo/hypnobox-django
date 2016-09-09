@@ -25,7 +25,6 @@ class SpecBase(object):
             domain=DOMAIN,
             params=urlencode(params)
         )
-        print(url)
         return url
 
 

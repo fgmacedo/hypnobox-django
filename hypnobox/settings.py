@@ -5,7 +5,7 @@ from django.core.exceptions import ImproperlyConfigured
 from .specs import SPECS
 
 
-SPEC_VERSION = getattr(settings, 'HYPNOBOX_SPEC_VERSION', 1.0)
+SPEC_VERSION = getattr(settings, 'HYPNOBOX_SPEC_VERSION', max(SPECS))
 DOMAIN = getattr(settings, 'HYPNOBOX_DOMAIN', 'hypnobox.com.br')
 CLIENT_ID = getattr(settings, 'HYPNOBOX_CLIENT_ID', 'demo')
 

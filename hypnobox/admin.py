@@ -8,5 +8,11 @@ from .models import Lead
 
 @admin.register(Lead)
 class LeadAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone_prefix', 'phone_number', 'product_id', 'media')
-    search_fields = ('name', 'email', 'phone_prefix', 'phone_number', 'product_id', 'media')
+    list_display = (
+        'name', 'email', 'phone_prefix', 'phone_number',
+        'product_id', 'media', 'created_on'
+    )
+    search_fields = (
+        'name', 'email', 'phone_prefix', 'phone_number',
+        'product_id', 'media',
+    )
