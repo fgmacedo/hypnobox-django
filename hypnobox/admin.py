@@ -16,3 +16,4 @@ class LeadAdmin(admin.ModelAdmin):
         'name', 'email', 'phone_prefix', 'phone_number',
         'product_id', 'media',
     )
+    date_hierarchy = 'created_on'
