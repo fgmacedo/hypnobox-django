@@ -14,6 +14,7 @@ class LeadCreateView(CreateView):
         kwargs = super(LeadCreateView, self).get_form_kwargs()
         initial = {
             'product_id': self.request.GET.get('product_id'),
+            'description': self.request.GET.get('description'),
             'media': self.request.GET.get('media'),
         }
         kwargs['initial'] = initial

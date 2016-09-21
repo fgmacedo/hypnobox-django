@@ -12,9 +12,9 @@ register = template.Library()
 
 
 @register.simple_tag(takes_context=True)
-def new_lead(context, product_id, media='', template='hypnobox/_link.html'):
+def new_lead(context, product_id, media='', template='hypnobox/_link.html', description=''):
     link = reverse('{}:new_lead'.format(Lead._meta.app_label))
-    params = urlencode(dict(product_id=product_id, media=media))
+    params = urlencode(dict(product_id=product_id, media=media, description=description))
     context = {
         'url': "{}?{}".format(link, params),
     }
