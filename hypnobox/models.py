@@ -16,7 +16,7 @@ class Lead(models.Model):
         validators=[RegexValidator(r'^\d{2,3}$', message=_("Only numbers."))]
     )
     phone_number = models.CharField(
-        _('phone number'), max_length=9,
+        _('phone number'), max_length=10,
         validators=[RegexValidator(r'^[\d\-]+$', message=_("Only numbers."))])
     product_id = models.CharField(_('product id'), max_length=100, blank=True)
     description = models.CharField(_('description'), max_length=255, blank=True)
